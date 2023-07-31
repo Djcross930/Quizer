@@ -1,4 +1,4 @@
-package com.dan.quizer;
+package com.dan.quizer.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

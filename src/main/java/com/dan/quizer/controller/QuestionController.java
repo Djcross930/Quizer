@@ -1,5 +1,5 @@
 package com.dan.quizer.controller;
-import com.dan.quizer.Question;
+import com.dan.quizer.model.Question;
 import com.dan.quizer.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

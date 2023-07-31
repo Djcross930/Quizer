@@ -1,6 +1,6 @@
 package com.dan.quizer.service;
 
-import com.dan.quizer.Question;
+import com.dan.quizer.model.Question;
 import com.dan.quizer.dao.QuestionDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
