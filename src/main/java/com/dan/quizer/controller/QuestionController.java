@@ -24,11 +24,21 @@ public class QuestionController {
         return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
     }
     @GetMapping("category/{category}")
-    public List<Question> getQuestionsByCategory(@PathVariable String category){
-        return questionService.getQuestionsByCategory(category);
+    public ResponseEntity<List<Question>> getQuestionsByCategory(@PathVariable String category){
+        try {
+            return questionService.getQuestionsByCategory(category);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
     }
     @PostMapping("add")
-    public String addQuestion(@RequestBody Question question){
-        return questionService.addQuestion(question);
+    public ResponseEntity<String> addQuestion(@RequestBody Question question){
+        try {
+            return questionService.addQuestion(question);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(new String("Something Went Wrong!"), HttpStatus.BAD_REQUEST);
     }
 }

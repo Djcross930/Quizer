@@ -17,12 +17,12 @@ public class QuestionService {
         return new ResponseEntity<>(questionDao.findAll(), HttpStatus.OK);
     }
 
-    public List<Question> getQuestionsByCategory(String category) {
-        return questionDao.findByCategory(category);
+    public ResponseEntity<List<Question>> getQuestionsByCategory(String category) {
+        return new ResponseEntity<>(questionDao.findByCategory(category), HttpStatus.OK);
     }
 
-    public String addQuestion(Question question) {
+    public ResponseEntity<String> addQuestion(Question question) {
         questionDao.save(question);
-        return "success";
+        return new ResponseEntity<>("Success", HttpStatus.CREATED);
     }
 }
