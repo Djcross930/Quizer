@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -15,7 +16,12 @@ public class QuestionController {
     QuestionService questionService;
     @GetMapping("allQuestions")
     public ResponseEntity<List<Question>> getAllQuestions(){
-        return questionService.getAllQuestions();
+        try {
+            return questionService.getAllQuestions();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
     }
     @GetMapping("category/{category}")
     public List<Question> getQuestionsByCategory(@PathVariable String category){
